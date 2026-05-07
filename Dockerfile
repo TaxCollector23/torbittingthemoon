@@ -7,14 +7,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     bash \
     ca-certificates \
     chromium \
+    curl \
+    dbus-x11 \
     fonts-liberation \
     git \
     netcat-openbsd \
-    tor \
-    x11vnc \
-    xvfb \
+    openbox \
+    procps \
     python3 \
     python3-numpy \
+    tor \
+    x11-utils \
+    x11vnc \
+    xdg-utils \
+    xvfb \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://github.com/novnc/noVNC.git /noVNC \

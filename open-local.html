@@ -6,7 +6,7 @@
   <title>Open Local Tor Session</title>
   <style>
     body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #090909; color: #eee; font-family: system-ui, -apple-system, Segoe UI, sans-serif; padding: 24px; }
-    main { width: min(640px, 100%); border: 1px solid #292929; border-radius: 28px; background: #111; padding: 32px; }
+    main { width: min(680px, 100%); border: 1px solid #292929; border-radius: 28px; background: #111; padding: 32px; }
     h1 { margin: 0 0 12px; font-size: clamp(34px, 7vw, 60px); line-height: .95; letter-spacing: -.06em; }
     p { color: #999; line-height: 1.6; }
     a { display: inline-flex; margin-top: 12px; min-height: 48px; align-items: center; justify-content: center; border-radius: 16px; padding: 0 18px; background: #fff; color: #050505; text-decoration: none; font-weight: 750; }
@@ -16,8 +16,9 @@
 <body>
   <main>
     <h1>Local launcher</h1>
-    <p>Start the container first with <code>./run-local.sh</code>, then open the local browser session.</p>
-    <a href="http://localhost:6080/vnc.html?autoconnect=true&resize=scale" target="_blank" rel="noreferrer">Open local session</a>
+    <p>Start the container first with <code>./run-local.sh</code>, then open the interactive browser session.</p>
+    <p>Click inside the noVNC screen once before typing.</p>
+    <a href="http://localhost:6080/vnc.html?autoconnect=true&resize=scale&reconnect=true&show_dot=true&view_only=false&quality=9&compression=2" target="_blank" rel="noreferrer">Open local interactive session</a>
   </main>
 </body>
 </html>

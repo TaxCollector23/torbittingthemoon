@@ -1,16 +1,16 @@
-# Tor Session Test
+# Tor Session Interactive Test
 
 A minimal Docker app that runs Chromium through Tor and exposes the browser through noVNC.
 
-## What changed
+This version is configured for normal interaction: mouse, keyboard, clicking, typing, searching, and browsing.
 
-- Replaced the broken/empty Python path.
-- Made the Dockerfile simpler and more portable by using Debian Chromium.
-- Copied the real `index.html` into noVNC instead of duplicating HTML inside the Dockerfile.
-- Added a one-command local runner.
-- Added a clean dark landing page.
-- Added a direct local launcher: `open-local.html`.
-- Kept Render deployment support with `render.yaml`.
+## What was fixed
+
+- Added Openbox so Chromium has a real window manager and can reliably receive focus.
+- Set noVNC links to interactive mode, not view-only mode.
+- Strengthened x11vnc input flags for keyboard repeat, XKB, cursor, and reduced X damage/input glitches.
+- Added a local launcher that opens the noVNC session directly.
+- Kept the clean dark landing page.
 
 ## Run locally
 
@@ -22,24 +22,29 @@ Then run:
 ./run-local.sh
 ```
 
-Open:
+It should open your browser automatically. If not, open:
 
 ```text
-http://localhost:6080
+http://localhost:6080/vnc.html?autoconnect=true&resize=scale&reconnect=true&show_dot=true&view_only=false&quality=9&compression=2
 ```
 
-Or double-click:
+## How to interact
 
-```text
-open-local.html
-```
-
-The local launcher only works after the Docker container is running.
+1. Wait until Chromium appears.
+2. Click once inside the noVNC screen.
+3. Click the Chromium address bar.
+4. Type normally.
 
 ## Change the starting page
 
 ```bash
-URL="https://example.com" ./run-local.sh
+URL="https://duckduckgo.com" ./run-local.sh
+```
+
+## Change screen size
+
+```bash
+SCREEN_SIZE="1440x900x24" ./run-local.sh
 ```
 
 ## Deploy on Render
