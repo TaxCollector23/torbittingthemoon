@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: tor-session-test
+    env: docker
+    autoDeploy: true
+    envVars:
+      - key: URL
+        value: https://check.torproject.org
